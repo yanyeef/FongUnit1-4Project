@@ -1,6 +1,7 @@
 public class Calc {
     private double first;
     private double second;
+    private String expression;
 
     //constructor class
     public Calc(double one, double two) {
@@ -8,14 +9,24 @@ public class Calc {
         this.second = two;
     }
 
-    public double add(String expression){
-        String current = "";
+    public Calc(String expression){
+        this.expression = expression;
+    }
+
+    public double add(){
+        String current = expression;
         double sum = 0;
-        for (int i =0; i < expression.length(); i++){
-            if(expression.indexOf(i) != -1){
-                sum +=
+        if (current.length() != 0) {
+            while ((current.substring(0, current.indexOf(" +") )).contains(" +") == false) {
+                sum += Double.parseDouble(current.substring(0, current.indexOf(" +")));
+                current = current.substring(current.indexOf("+") +1);
             }
+        } else {
+            return sum;
         }
+        return first + second;
+
+
     }
 
 
