@@ -1,7 +1,9 @@
+
 public class Calc {
     private double first;
     private double second;
     private String expression;
+    private double radian;
 
     //constructor class
     public Calc(double one, double two) {
@@ -9,25 +11,56 @@ public class Calc {
         this.second = two;
     }
 
+    public Calc(double one){
+        this.first = one;
+
+    }
+
     public Calc(String expression){
         this.expression = expression;
     }
 
     public double add(){
-        String current = expression;
-        double sum = 0;
-        if (current.length() != 0) {
-            while ((current.substring(0, current.indexOf(" +") )).contains(" +") == false) {
-                sum += Double.parseDouble(current.substring(0, current.indexOf(" +")));
-                current = current.substring(current.indexOf("+") +1);
-            }
-        } else {
-            return sum;
-        }
         return first + second;
-
-
     }
+
+    public double subtract() {
+        return first -second;
+    }
+
+    public double multiply() {
+        return first* second;
+    }
+
+    public double divide() {
+        return (double) first/ second;
+    }
+
+    public void radian() {
+        this.radian =Math.toRadians(first);
+    }
+
+    public double sin() {
+        return Math.sin(radian);
+    }
+
+    public double cos() {
+        return Math.cos(radian);
+    }
+
+    public double tan() {
+        return Math.tan(radian);
+    }
+
+    public double sqrt() {
+        return Math.sqrt(first);
+    }
+
+    public double pow() {
+        return Math.pow(first, second);
+    }
+
+
 
 
 }
