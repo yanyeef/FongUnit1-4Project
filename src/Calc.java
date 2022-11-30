@@ -36,19 +36,20 @@ public class Calc {
         return (double) first/ second;
     }
 
-    public void radian() {
+    public double radian(double first) {
         this.radian =Math.toRadians(first);
+        return radian;
     }
 
-    public double sin() {
+    public double sin(double radian) {
         return Math.sin(radian);
     }
 
-    public double cos() {
+    public double cos(double radian) {
         return Math.cos(radian);
     }
 
-    public double tan() {
+    public double tan(double radian) {
         return Math.tan(radian);
     }
 
