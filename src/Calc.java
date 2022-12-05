@@ -3,65 +3,98 @@
  * The Calc class represents a Calculator with values and math sign
  */
 public class Calc {
+    /** This is the first value */
     private double first;
+    /** This is the second value */
     private double second;
+    /** This is the expression*/
     private String expression;
+    /** This is the math sign  */
     private String sign;
+    /** This is the radian value*/
     private double radian;
     private int numOfValues;
 
-    //constructor class
+    /** Two parameter constructor initializes coordinates to
+     @param one - first value
+     @param sign - math sign
+     */
     public Calc(double one, String sign){
         this.first = one;
         this.sign = sign;
     }
-// if user just types = it will return 0
 
-
+    /** Default constructor return 0 */
     public Calc(){
         this.first =0;
         this.sign = "+";
         this.second = 0;
     }
 
+    /** Two parameter constructor initializes coordinates to
+     * @param expression - math expression
+     * @param sign - math sign
+     */
     public Calc(String expression, String sign){
         this.expression = expression;
         this.sign = sign;
     }
+    /** void method that returns zero */
     public void zero(){
         int zero = 0;
         System.out.println("=" + zero);
     }
 
-
-
-
-
+    /** initializes radian and returns radian value
+     * @param first - first value inputted
+     * @return double - the radian
+     */
     public double radian(double first) {
         this.radian =Math.toRadians(first);
         return radian;
     }
 
+    /** returns the sin
+     * @param radian - radian value
+     * @return double - the sin value with input of radian
+     */
     public double sin(double radian) {
         return Math.sin(radian);
     }
 
+    /** return the cos value
+     * @param radian- radian value
+     * @return double - the cos value
+     */
     public double cos(double radian) {
         return Math.cos(radian);
     }
 
+    /** return the tan value
+     * @param radian - radian value
+     * @return double - the tan value
+     */
     public double tan(double radian) {
         return Math.tan(radian);
     }
 
+    /** return the sqrt value
+     * @return double sqrt
+     */
     public double sqrt() {
         return Math.sqrt(first);
     }
 
+    /** get the power of value
+     * @return double power of
+     */
     public double pow() {
         return Math.pow(first, second);
     }
 
+    /** chooses which method to use sqrt, sin, cos, tan
+     * @return double result
+     */
     public double oneVal() {
         double result =0;
         if (sign.equals("sqrt")){
@@ -76,6 +109,11 @@ public class Calc {
         return result;
     }
 
+    /** chooses which method to use add, subtract, mutiply, divide
+     * @param numOfValues
+     * @param sign
+     * @return double result
+     */
     public double twoVal(int numOfValues, String sign) {
         double result = 0;
         if (sign.equals("+")) {
@@ -92,6 +130,9 @@ public class Calc {
         return result;
     }
 
+    /** get the expression
+     * @return String entire expression and result from oneVal()
+     */
     public String toString1() {
         if(!sign.equals("!")) {
             return sign + " " + first + " = " + "\n" + oneVal();
@@ -99,6 +140,7 @@ public class Calc {
             return printFactoral();
         }
     }
+
 
     public String toString2(int numOfValues){
         String current = expression;
@@ -108,7 +150,7 @@ public class Calc {
             if (current.length() > 3 && current.contains(sign)) {
                 current = current.substring(current.indexOf(" ") + 3);
             }
-            end += value + " " + sign;
+            end += value + " " + sign + " ";
             numOfValues--;
         }
         return end;

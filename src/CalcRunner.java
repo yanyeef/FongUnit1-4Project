@@ -34,8 +34,8 @@ public class CalcRunner {
             } else {
                 String signEX = expression.substring(expression.indexOf(" ") + 1, expression.indexOf(" ") + 2);
                 Calc express = new Calc(expression, signEX);
-                System.out.println(express.twoVal(numOfValues, signEX));
                 System.out.println(express.toString2(numOfValues));
+                System.out.println(express.twoVal(numOfValues, signEX));
             }
 
 
