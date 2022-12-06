@@ -141,7 +141,10 @@ public class Calc {
         }
     }
 
-
+    /** get the expression if user inputs multiple values
+     * @param numOfValues - total number of values inputted
+     * @return String of entire expression and
+     */
     public String toString2(int numOfValues){
         String current = expression;
         String end = "";
@@ -153,10 +156,14 @@ public class Calc {
             end += value + " " + sign + " ";
             numOfValues--;
         }
+        end = end.substring(0, end.length() -2) + "= ";
         return end;
     }
 
-    public int factoral(){
+    /** solves for factorial
+     * @return int of factorial
+     */
+    public int factorial(){
         double result = 1;
         while( first >1) {
             result = result * first;
@@ -165,10 +172,18 @@ public class Calc {
         return (int)result;
     }
 
+    /** prints factorial
+     * @return String with factorial and expression
+     */
     public String printFactoral() {
-        return (int)first + sign  + " = " + "\n" + factoral();
+        return (int)first + sign  + " = " + "\n" + factorial();
     }
 
+    /** solve using addition
+     * @param numOfVal - number of values inputted
+     * @param sign - math sign
+     * @return double of sum
+     */
     public double expressionAdd(int numOfVal, String sign){
 
         String current = expression.substring(0, expression.length()-1);
@@ -187,6 +202,11 @@ public class Calc {
         return num;
     }
 
+    /** solve using subtraction
+     * @param numOfVal - number of values inputted
+     * @param sign - math sign
+     * @return double of difference
+     */
     public double sub(int numOfVal, String sign){
         String current = expression.substring(0, expression.length()-1);
         double num =Double.parseDouble(current.substring(0, current.indexOf(" ")));
@@ -204,7 +224,11 @@ public class Calc {
         }
         return num;
     }
-
+    /** solve using mutliplication
+     * @param numOfVal - number of values inputted
+     * @param sign - math sign
+     * @return double of product
+     */
     public double mult(int numOfVal, String sign){
         String current = expression.substring(0, expression.length()-1);
         double num =1;
@@ -222,6 +246,11 @@ public class Calc {
         return num;
     }
 
+    /** solve using division
+     * @param numOfVal - number of values inputted
+     * @param sign - math sign
+     * @return double of quotient
+     */
     public double div(int numOfVal, String sign){
         String current = expression.substring(0, expression.length()-1);
         double num =Double.parseDouble(current.substring(0, current.indexOf(" ")));
