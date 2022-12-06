@@ -11,7 +11,7 @@ public class CalcRunner {
         String on= scan.nextLine();
         while(!on.contains("no")) {
             System.out.print("");
-            System.out.print("Type in a value or sign: ");
+            System.out.println("Type in a value or sign: ");
             String input = scan.nextLine();
             expression += input + " ";
 //            while (!(input.contains("="))) {
@@ -40,11 +40,13 @@ public class CalcRunner {
                     System.out.println(express.toString2(numOfValues));
                     System.out.println(express.twoVal(numOfValues, signEX));
                 }
+            }
+            else if(input.equals("-1")) {
+                System.out.println("do you want to continue? ");
+                on = scan.nextLine();
+                System.out.println();
+            }
 
-                }
-            System.out.println("do you want to continue? ");
-            on = scan.nextLine();
-            System.out.println();
         }
         if(on.contains("no")){
             System.out.println("----------------------------");
