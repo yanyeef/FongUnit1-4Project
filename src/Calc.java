@@ -89,6 +89,8 @@ public class Calc {
      * @return double power of
      */
     public double pow() {
+        double first = Double.parseDouble(expression.substring(0, expression.indexOf(" ")));
+        double second = Double.parseDouble(expression.substring(expression.indexOf(" ")+ 3, expression.indexOf("=")-1));
         return Math.pow(first, second);
     }
 

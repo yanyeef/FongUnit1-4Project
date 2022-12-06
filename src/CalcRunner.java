@@ -41,9 +41,8 @@ public class CalcRunner {
                     System.out.println(express.twoVal(numOfValues, signEX));
                 }
             }
-            else if(input.equals("-1")) {
-                System.out.println("do you want to continue? ");
-                on = scan.nextLine();
+            else if(input.equals("off")) {
+                on = "no";
                 System.out.println();
             }
 
