@@ -44,7 +44,6 @@ public class CalcRunner {
             }
             else if(input.equals("off")) {
                 on = "no";
-                System.out.println();
             }
             expression = "";
         }
