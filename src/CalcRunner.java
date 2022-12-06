@@ -7,12 +7,12 @@ public class CalcRunner {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
         String expression = "";
-        String on = "yes";
         System.out.println("If you want sin, cos, tan, !, or sqrt, type out the sign on the first line, then type out the value\ntype on to start");
-        String input= scan.nextLine();
+        String on= scan.nextLine();
         while(!on.contains("no")) {
+            System.out.print("");
             System.out.print("Type in a value or sign: ");
-            input = scan.nextLine();
+            String input = scan.nextLine();
             expression += input + " ";
 //            while (!(input.contains("="))) {
 //                System.out.print("Type in a value or sign: ");
@@ -41,13 +41,12 @@ public class CalcRunner {
                     System.out.println(express.twoVal(numOfValues, signEX));
                 }
 
-            }
+                }
             System.out.println("do you want to continue? ");
             on = scan.nextLine();
             System.out.println();
-
         }
-        if(input.contains("off")){
+        if(on.contains("no")){
             System.out.println("----------------------------");
         }
 
