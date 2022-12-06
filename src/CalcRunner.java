@@ -23,6 +23,7 @@ public class CalcRunner {
             if (input.contains("=")) {
                 System.out.print("How much values did you input: ");
                 int numOfValues = scan.nextInt();
+                scan.nextLine(); // clearing the buffer
 
                 if (numOfValues == 0) {
                     Calc noValue = new Calc();
@@ -45,7 +46,7 @@ public class CalcRunner {
                 on = "no";
                 System.out.println();
             }
-
+            expression = "";
         }
         if(on.contains("no")){
             System.out.println("----------------------------");
