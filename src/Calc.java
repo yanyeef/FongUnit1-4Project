@@ -116,15 +116,15 @@ public class Calc {
      */
     public double twoVal(int numOfValues, String sign) {
         double result = 0;
-        if (sign.equals("+")) {
+        if (sign.equals("+ ")) {
             result = expressionAdd(numOfValues, sign);
-        } else if (sign.equals("-")) {
+        } else if (sign.equals("- ")) {
             result = sub(numOfValues, sign);
-        } else if (sign.equals("*")) {
+        } else if (sign.equals("* ")) {
             result = mult(numOfValues, sign);
-        } else if (sign.equals("/")) {
+        } else if (sign.equals("/ ")) {
             result = div(numOfValues,sign);
-        } else if (sign.equals("^")) {
+        } else if (sign.equals("^ ")) {
             result = pow();
         }
         return result;
@@ -153,7 +153,7 @@ public class Calc {
             if (current.length() > 3 && current.contains(sign)) {
                 current = current.substring(current.indexOf(" ") + 3);
             }
-            end += value + " " + sign + " ";
+            end += value + " " + sign ;
             numOfValues--;
         }
         end = end.substring(0, end.length() -2) + "= ";
@@ -163,13 +163,18 @@ public class Calc {
     /** solves for factorial
      * @return int of factorial
      */
-    public int factorial(){
+    public String factorial(){
         double result = 1;
+        String end ="";
         while( first >1) {
             result = result * first;
             first--;
         }
-        return (int)result;
+        end = result + "";
+        if(first <0){
+            end = "Error";
+        }
+        return  end;
     }
 
     /** prints factorial
@@ -189,10 +194,10 @@ public class Calc {
         String current = expression.substring(0, expression.length()-1);
         double num =0;
 
-        if(sign.equals("+")) {
+        if(sign.equals("+ ")) {
             while (numOfVal > 0) {
                 double value = Double.parseDouble(current.substring(0, current.indexOf(" ")));
-                if (current.length() > 3 && current.contains("+")) {
+                if (current.length() > 3 && current.contains("+ ")) {
                     current = current.substring(current.indexOf(" ") + 3);
                 }
                 num += value;
@@ -212,10 +217,10 @@ public class Calc {
         double num =Double.parseDouble(current.substring(0, current.indexOf(" ")));
         current = current.substring(current.indexOf(" ") + 3);
 
-        if(sign.equals("-")) {
+        if(sign.equals("- ")) {
             while (numOfVal > 1) {
                 double value = Double.parseDouble(current.substring(0, current.indexOf(" ")));
-                if (current.length() > 3 && current.contains("-")) {
+                if (current.length() > 3 && current.contains("- ")) {
                     current = current.substring(current.indexOf(" ") + 3);
                 }
                 num -= value;
@@ -233,10 +238,10 @@ public class Calc {
         String current = expression.substring(0, expression.length()-1);
         double num =1;
 
-        if(sign.equals("*")) {
+        if(sign.equals("* ")) {
             while (numOfVal > 0) {
                 double value = Double.parseDouble(current.substring(0, current.indexOf(" ")));
-                if (current.length() > 3 && current.contains("*")) {
+                if (current.length() > 3 && current.contains("* ")) {
                     current = current.substring(current.indexOf(" ") + 3);
                 }
                 num = num* value;
@@ -256,10 +261,10 @@ public class Calc {
         double num =Double.parseDouble(current.substring(0, current.indexOf(" ")));
         current = current.substring(current.indexOf(" ") + 3);
 
-        if(sign.equals("/")) {
+        if(sign.equals("/ ")) {
             while (numOfVal > 1) {
                 double value = Double.parseDouble(current.substring(0, current.indexOf(" ")));
-                if (current.length() > 3 && current.contains("/")) {
+                if (current.length() > 3 && current.contains("/ ")) {
                     current = current.substring(current.indexOf(" ") + 3);
                 }
                 num /= value;

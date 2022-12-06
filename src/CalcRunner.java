@@ -33,7 +33,7 @@ public class CalcRunner {
                 System.out.println(oneValue.toString1());
 
             } else {
-                String signEX = expression.substring(expression.indexOf(" ") + 1, expression.indexOf(" ") + 2);
+                String signEX = expression.substring(expression.indexOf(" ") + 1, expression.indexOf(" ") + 3);
                 Calc express = new Calc(expression, signEX);
                 System.out.println(express.toString2(numOfValues));
                 System.out.println(express.twoVal(numOfValues, signEX));
