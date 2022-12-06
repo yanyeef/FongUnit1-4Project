@@ -11,7 +11,7 @@ public class CalcRunner {
         String on= scan.nextLine();
         while(!on.contains("no")) {
             System.out.print("");
-            System.out.println("Type in a value or sign: ");
+            System.out.println("Type in a value or sign( off to end) : ");
             String input = scan.nextLine();
             expression += input + " ";
 //            while (!(input.contains("="))) {
