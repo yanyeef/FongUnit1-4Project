@@ -93,87 +93,18 @@ public class Calc {
         double second = Double.parseDouble(expression.substring(expression.indexOf(" ")+ 3, expression.indexOf("=")-1));
         return Math.pow(first, second);
     }
-
-    /** chooses which method to use sqrt, sin, cos, tan
-     * @return double result
-     */
-    public double oneVal() {
-        double result =0;
-        if (sign.equals("sqrt")){
-            result = sqrt();
-        } else if (sign.equals("sin")){
-            result = sin(radian(first));
-        } else if (sign.equals("cos")){
-            result = cos(radian(first));
-        } else if(sign.equals("tan")){
-            result = tan(radian(first));
-        }
-        return result;
-    }
-
-    /** chooses which method to use add, subtract, mutiply, divide
-     * @param numOfValues
-     * @param sign
-     * @return double result
-     */
-    public double twoVal(int numOfValues, String sign) {
-        double result = 0;
-        if (sign.equals("+ ")) {
-            result = expressionAdd(numOfValues, sign);
-        } else if (sign.equals("- ")) {
-            result = sub(numOfValues, sign);
-        } else if (sign.equals("* ")) {
-            result = mult(numOfValues, sign);
-        } else if (sign.equals("/ ")) {
-            result = div(numOfValues,sign);
-        } else if (sign.equals("^ ")) {
-            result = pow();
-        }
-        return result;
-    }
-
-    /** get the expression
-     * @return String entire expression and result from oneVal()
-     */
-    public String toString1() {
-        if(!sign.equals("!")) {
-            return sign + " " + first + " = " + "\n" + oneVal();
-        } else {
-            return printFactoral();
-        }
-    }
-
-    /** get the expression if user inputs multiple values
-     * @param numOfValues - total number of values inputted
-     * @return String of entire expression and
-     */
-    public String toString2(int numOfValues){
-        String current = expression;
-        String end = "";
-        while (numOfValues > 0) {
-            double value = Double.parseDouble(current.substring(0, current.indexOf(" ")));
-            if (current.length() > 3 && current.contains(sign)) {
-                current = current.substring(current.indexOf(" ") + 3);
-            }
-            end += value + " " + sign ;
-            numOfValues--;
-        }
-        end = end.substring(0, end.length() -2) + "= ";
-        return end;
-    }
-
     /** solves for factorial
      * @return int of factorial
      */
     public String factorial(){
         double result = 1;
         String end ="";
-        while( first >1) {
+        while( first >1 && first%1 ==0) {
             result = result * first;
             first--;
         }
         end = result + "";
-        if(first <0){
+        if(first <0 ||first%1 !=0 ){
             end = "Error";
         }
         return  end;
@@ -183,7 +114,7 @@ public class Calc {
      * @return String with factorial and expression
      */
     public String printFactoral() {
-        return (int)first + sign  + " = " + "\n" + factorial();
+        return first + sign  + " = " + "\n" + factorial();
     }
 
     /** solve using addition
@@ -275,6 +206,78 @@ public class Calc {
         }
         return num;
     }
+
+
+    /** chooses which method to use sqrt, sin, cos, tan
+     * @return double result
+     */
+    public double oneVal() {
+        double result =0;
+        if (sign.equals("sqrt")){
+            result = sqrt();
+        } else if (sign.equals("sin")){
+            result = sin(radian(first));
+        } else if (sign.equals("cos")){
+            result = cos(radian(first));
+        } else if(sign.equals("tan")){
+            result = tan(radian(first));
+        }
+        return result;
+    }
+
+    /** chooses which method to use add, subtract, mutiply, divide
+     * @param numOfValues
+     * @param sign
+     * @return double result
+     */
+    public double twoVal(int numOfValues, String sign) {
+        double result = 0;
+        if (sign.equals("+ ")) {
+            result = expressionAdd(numOfValues, sign);
+        } else if (sign.equals("- ")) {
+            result = sub(numOfValues, sign);
+        } else if (sign.equals("* ")) {
+            result = mult(numOfValues, sign);
+        } else if (sign.equals("/ ")) {
+            result = div(numOfValues,sign);
+        } else if (sign.equals("^ ")) {
+            result = pow();
+        }
+        return result;
+    }
+
+    /** get the expression
+     * @return String entire expression and result from oneVal()
+     */
+    public String toString1() {
+        if(!sign.equals("!")) {
+            return sign + " " + first + " = " +  oneVal();
+        } else {
+            return printFactoral();
+        }
+    }
+
+    /** get the expression if user inputs multiple values
+     * @param numOfValues - total number of values inputted
+     * @return String of entire expression and
+     */
+    public String toString2(int numOfValues){
+        String current = expression;
+        String end = "";
+        while (numOfValues > 0) {
+            double value = Double.parseDouble(current.substring(0, current.indexOf(" ")));
+            if (current.length() > 3 && current.contains(sign)) {
+                current = current.substring(current.indexOf(" ") + 3);
+            }
+            end += value + " " + sign ;
+            numOfValues--;
+        }
+        end = end.substring(0, end.length() -2) + "= ";
+        return end ;
+    }
+
+
+
 
 
 
